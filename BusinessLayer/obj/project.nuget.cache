@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "NUUAW8qspItYt8eN9W+jkjZJTRSmTwDE0kHresIaGubWFvSEjpgPJ3AnRntagdZt6/EQbVq6T5H29hSxX8qNog==",
+  "dgSpecHash": "cYExXOTj1utcEfFyAggWlOE+hlWrFKKLBnQNvjq07hfSh5sk5cKrsU9h7GYPIf/WiAb75DvaeTAb9oIhwouhdA==",
   "success": true,
   "projectFilePath": "C:\\Users\\DELL\\source\\repos\\OdevDeneme\\BusinessLayer\\BusinessLayer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\DELL\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
+    "C:\\Users\\DELL\\.nuget\\packages\\fluentvalidation\\11.4.0\\fluentvalidation.11.4.0.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\microsoft.data.sqlclient\\5.0.1\\microsoft.data.sqlclient.5.0.1.nupkg.sha512",
