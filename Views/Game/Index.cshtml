@@ -1,0 +1,28 @@
+ 
+ 
+@model List<GameRating.Models.Game>
+
+
+ <div class="gameList  container d-flex flex-wrap justify-content-center  mt-4" >
+
+           @foreach (var item in Model) {
+            <div class="game" >
+
+                <a  href="/Game/Detail/@item.GameId">
+                            
+                        @if (!string.IsNullOrEmpty(item.Banner))
+                        {
+                            <img src="data:image/png;base64,@Html.Raw(item.Banner)" 
+                            />
+                        }
+                        else
+                        {
+                            <img src="~/images/game.jpg" alt="game" 
+                            />
+                        }
+                </a>
+            </div>
+
+           }
+         
+ </div>

@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Teko:wght@600&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style-type: none;
+}
+
+:root {
+    --back: #1b1c22;
+    --primary: #A435F0;
+    --light: #e7c2ff;
+}
+
+header {
+    width: 100%;
+    background-color: var(--back);
+    /* border: 2px solid red; */
+    height: 90px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 5rem;
+}
+
+.Navbar_field {
+    color: var(--primary);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 1140px;
+    margin: 0 auto;
+    position: relative;
+    text-decoration: none;
+    position: sticky;
+    top: 0;
+    left: 0;
+    background-color: var(--back);
+    z-index: 20;
+    /* border: 2px solid green; */
+    padding-top: 10px;
+    height: 100%;
+}
+
+@media (max-width: 1390px) {
+    .Navbar_field {
+        width: 100%;
+        /* border: yellow solid 2px; */
+        padding: 0 1rem;
+    }
+    .myFavorites {
+        font-size: 1.3rem !important;
+    }
+    .popular {
+        font-size: 1.5rem !important;
+    }
+}
+
+@media screen and (max-width: 994px) {
+    .gameList {
+        position: relative;
+        min-height: 600px;
+        border: blue solid 2px;
+    }
+    .game {
+        width: 250px;
+        margin: 2.5rem;
+        opacity: 0.9;
+        transition: 350ms ease;
+    }
+}
+
+@media screen and (max-width: 615px) {
+    .Navbar_field ul li {
+        display: none
+    }
+    .Navbar_field {
+        padding-top: 10px;
+    }
+}
+
+.game {
+    width: 250px;
+    margin: 0.6rem 2.2rem 1.4rem 0;
+    opacity: 0.9;
+    transition: 350ms ease;
+    position: relative;
+}
+
+.game .heartIcon {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    font-size: 2.2rem;
+    z-index: 8;
+    text-shadow: 0 0 7px rgb(207, 5, 5);
+}
+
+.game .hidden {
+    display: none;
+}
+
+.game:hover .hidden {
+    display: block;
+}
+
+.Navbar_field ul {
+    display: flex;
+    align-items: center;
+    margin-top: 1.3rem;
+    padding: 0;
+}
+
+.Navbar_field ul li {
+    width: 125px;
+}
+
+.logo,
+.popular,
+.myFavorites {
+    text-decoration: none;
+    font-family: 'Teko', sans-serif;
+}
+
+.myFavorites:hover {
+    color: white;
+}
+
+.logo:hover {
+    color: var(--primary);
+}
+
+.logo {
+    font-size: 2rem;
+    color: var(--primary);
+}
+
+.popular {
+    font-size: 1.7rem;
+    color: #b681da;
+}
+
+.popular:hover {
+    color: #b681da;
+}
+
+.myFavorites {
+    font-size: 1.5rem;
+    color: white
+}
+
+.game:hover {
+    opacity: 1;
+}
+
+.game img {
+    width: 250px;
+    height: 320px;
+}
+
+.gameList {
+    position: relative;
+    min-height: 600px;
+    border: #1b1c22 solid 3px;
+}
+
+.myFavorites,
+.logoutBtn {
+    width: 100%;
+    height: 635px;
+    color: white !important;
+}

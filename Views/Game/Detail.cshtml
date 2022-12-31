@@ -1,0 +1,28 @@
+@model GameRating.Models.Game
+
+
+<div class="wrapper">
+
+    <div class="banner-wrapper">
+
+<img
+              
+                src="data:image/png;base64,@Html.Raw(Model.Banner)" />
+    </div>
+
+    <div class="gameInfo-wrapper">
+        <div class="gameInfo">
+            <div class="gameInfo-title">
+                @Model.Title
+            </div>
+            <div class="gameInfo-Detail">
+                @Model.Detail
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+<link rel="stylesheet" href="~/css/detail.css">

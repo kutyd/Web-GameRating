@@ -1,0 +1,53 @@
+@{
+    ViewData["Title"] = "Create Game";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+@model GameRating.Models.Game
+
+
+<div class="row">
+    <div class="col-5 offset-4">
+        <form  
+        method="post"
+        asp-action="CreateGame"
+        asp-controller="Admin"
+        enctype="multipart/form-data"
+        >
+
+            <input type="hidden" >
+            <div asp-validation-summary="ModelOnly" class="text-danger small"></div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Title" class="form-label">Title
+                </label>
+                <input asp-for="Title" class="form-control" placeholder="Title" />
+                <span asp-validation-for="Title" class="text-danger small"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Detail" class="form-label">Detail</label>
+
+                <textarea type="text" class="form-control" placeholder="Detail"  
+                
+                style="height: 150px ;resize: none;"
+                 asp-for="Detail"
+              ></textarea>
+                <span asp-validation-for="Detail" class="text-danger small"></span>
+            </div> 
+            <div class="form-group mb-3">
+
+                    <input
+                        name="Banner"
+                    type="file" asp-for="Banner"
+                    />
+            </div> 
+
+            
+            <div class="form-group d-grid mb-3">
+                <button type="submit" class="btn btn-primary d-block w-100 p-1 mt-2">
+                Create Game</button>
+            </div>
+        </form>
+    </div>
+</div>
+

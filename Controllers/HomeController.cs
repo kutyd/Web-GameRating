@@ -15,7 +15,8 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        return View();
+        // ANA SAYFAYA GELENI GAME ANASAYFA YONLENDIRDIM
+        return RedirectToAction("Index", "Game");
     }
 
     public IActionResult Privacy()

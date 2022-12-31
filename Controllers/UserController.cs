@@ -1,33 +1,30 @@
 using System.Diagnostics;
-using Microsoft.AspNetCore.Mvc;
 using GameRating.Models;
-
+using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authentication.Cookies;
 namespace GameRating.Controllers;
 
 public class UserController : Controller
 {
 
     private readonly HomeContext _context;
-        //  pass hashlerken sona ekstra strıng eklıyoruz bunu sıtelerde dırek sıfreyı cozemesın dıye appsettıngsda tanımladıgımız stryı alıcaz ve passi hashlicez
-    private readonly IConfiguration _configuration;
 
-    public UserController(HomeContext context, IConfiguration configuration)
+    public UserController(HomeContext context)
         {
             _context = context;
-            _configuration = configuration;
         }
 
-    public IActionResult SignIn()
-    {
-        return View();
-    }
 
+   
      public IActionResult SignUp()
     {
         return View();
     }
 
-    [HttpPost]
+        [HttpPost]
         public async Task<IActionResult> SignUp(SignUpViewModel signupInfo)
         {
             if (ModelState.IsValid)
@@ -37,14 +34,6 @@ public class UserController : Controller
                     ModelState.AddModelError("Username", "Username already exists");
                     return View(signupInfo);
                 }
-
-                // string md5Salt = _configuration.GetValue<string>("AppSettings:MD5SaltStr");
-
-                // string saltedPassword = registerUser.Password + md5Salt;
-
-                // string hashedPassword = EncryptProvider.Md5(saltedPassword);
-
-
                 User user = new User()
                 {
                     Username = signupInfo.Username,
@@ -59,6 +48,57 @@ public class UserController : Controller
             return View(signupInfo);
         }
    
+
+        public IActionResult SignIn()
+            {
+                return View();
+            }
+
+        [HttpPost]
+        public async Task<IActionResult> SignIn(SignInViewModel signinInfo)
+        {
+            if (ModelState.IsValid)
+            {
+              
+                User user = _context.Kullanicilar.SingleOrDefault(u => u.Username.ToLower() == signinInfo.Username.ToLower() && u.Password == signinInfo.Password);
+
+
+                if (user != null)
+                {
+
+                    // login işlemi başarılı
+                    // session oluştur
+
+                    List<Claim> claims = new List<Claim>();
+                    claims.Add(new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()));
+                    claims.Add(new Claim(ClaimTypes.Name, user.Username ?? string.Empty));
+                    claims.Add(new Claim(ClaimTypes.Role, user.Role));
+
+                    ClaimsIdentity claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+
+                    ClaimsPrincipal claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
+
+                    HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, claimsPrincipal);
+
+                    return RedirectToAction("Index", "Game");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Email or password is wrong");
+                }
+
+            }
+            return View(signinInfo);
+
+        }
+
+
+  public IActionResult Logout()
+        {
+
+            HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            return RedirectToAction("Index", "Game");
+        }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()

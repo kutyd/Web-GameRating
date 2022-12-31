@@ -1,0 +1,45 @@
+@model GameRating.Models.EditUserViewModel
+
+@{
+    ViewData["Title"] = "Edit User";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+
+}
+
+<div class="row">
+    <div class="col-5 offset-4">
+        <form  asp-action="UpdateUser" 
+        >
+            <div 
+            asp-validation-summary="ModelOnly" class="text-danger small"></div>
+            
+            <div class="form-group mb-3">
+                <label asp-for="Username" class="form-label">Username</label>
+                <input asp-for="Username" class="form-control" placeholder="Username" 
+                    value="@Model.Username"
+                />
+                <span asp-validation-for="Username" class="text-danger small"></span>
+            </div>
+       
+        <div class="form-group" style="margin :1.5rem 0 ;">
+                <label asp-for="Role" class="control-label mb-2"></label>
+                <div clas="d-flex flex-direction-row">
+                    <div class="form-check">
+                        <input asp-for="Role" type="radio" value="Admin" class="form-check-input" />
+                        <label class="form-check-label">Admin</label>
+                    </div>
+                    <div class="form-check">
+                        <input asp-for="Role" type="radio" value="User" class="form-check-input" />
+                        <label class="form-check-label">User</label>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="form-group d-grid mb-3">
+                <button type="submit" class="btn btn-primary d-block w-100 mt-4">Edit User</button>
+            </div>
+        </form>
+    </div>
+</div>
+

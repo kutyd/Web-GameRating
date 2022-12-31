@@ -1,0 +1,43 @@
+@{
+    ViewData["Title"] = "All Users";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@model IEnumerable<GameRating.Models.User>
+<div class="d-flex flex-row-reverse bd-highlight mb-4">
+<a class="btn btn-danger"  role="button"
+ asp-controller="Admin" asp-action="CreateUser" asp-area=""
+>Create User</a>
+
+</div>
+<table class="table table-dark">
+  <thead>
+    <tr>
+      <th scope="col"></th>
+      <th scope="col">Username</th>
+      <th scope="col">Role</th>
+      <th scope="col">CreatedDatetime</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+      @foreach (var item in Model)
+    {
+    <tr>
+      <td ></td>
+
+      <td>@item.Username</td>
+      <td>@item.Role</td>
+      <td>@item.CreatedDatetime</td>
+
+        <td>
+              <a href="/Admin/UpdateUser/@item.Id" class="btn btn-primary"> Update  </a>
+            </td>
+            <td>
+                <a href="/Admin/DeleteUser/@item.Id" class="btn btn-danger"> Delete  </a>
+            </td>
+    </tr>
+    }
+  </tbody>
+</table>

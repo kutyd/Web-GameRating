@@ -1,0 +1,19 @@
+.wrapper {
+    border: 2px solid green;
+    display: flex;
+    justify-content: space-between;
+    height: 580px;
+    max-width: 1140px !important;
+    margin: 0 auto;
+}
+
+.banner-wrapper {
+    border: 2px solid red;
+    width: 42%;
+    max-width: 450px;
+}
+
+.banner-wrapper img {
+    width: 100%;
+    height: 100%;
+}
