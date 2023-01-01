@@ -1,19 +1,116 @@
 .wrapper {
-    border: 2px solid green;
     display: flex;
     justify-content: space-between;
-    height: 580px;
+    height: auto;
     max-width: 1140px !important;
     margin: 0 auto;
+    margin-top: -3rem;
 }
 
 .banner-wrapper {
-    border: 2px solid red;
     width: 42%;
-    max-width: 450px;
 }
 
 .banner-wrapper img {
     width: 100%;
     height: 100%;
+}
+
+.gameInfo-wrapper {
+    width: 49%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.gameInfo-wrapper .game-title {
+    margin-bottom: 2rem;
+    font-weight: bold;
+    font-size: 1.5rem;
+    letter-spacing: 0.8px;
+    color: var(--primary);
+    font-family: 'Acme', sans-serif;
+}
+
+.gameInfo-wrapper .game-Detail {
+    font-family: 'IBM Plex Sans KR', sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 28px;
+}
+
+.comment-container {
+    border: 1px solid #e3e3e3;
+    max-width: 1140px !important;
+    margin: 2.5rem auto;
+    padding: 1rem;
+}
+
+.wrp-comments {
+    display: flex;
+    /* border: 2px solid red; */
+    width: 100%;
+    position: relative;
+    flex-wrap: wrap;
+}
+
+.comment-wrapper {
+    /* border: 2px solid green; */
+    width: auto;
+    max-width: 550px;
+    height: auto;
+    padding: 1rem;
+    margin-top: 2rem;
+    background-color: rgb(239, 239, 239);
+    border-radius: 12px;
+    margin-right: 2rem;
+}
+
+.title {
+    font-weight: bold;
+    letter-spacing: 0.8px;
+    font-size: 1.3rem;
+    margin-bottom: 0.2rem;
+    font-family: 'Acme';
+}
+
+.comment-content {
+    margin: 1rem 0;
+}
+
+.comment-CreatedDate {
+    font-size: 0.8rem;
+    color: #a3a3a3;
+}
+
+.comment-wrapper .comment-title {
+    font-weight: bold;
+    letter-spacing: 0.8px;
+    color: var(--primary);
+}
+
+.wrp {
+    /* border: red solid 2px; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.wrp p {
+    margin-top: 40px;
+    text-decoration: underline;
+    color: blueviolet !important;
+    margin-right: 1rem;
+}
+
+.ratings {
+    margin-right: 10px;
+}
+
+.ratings i {
+    color: #cecece;
+}
+
+.rating-color {
+    color: #fbc634 !important;
 }

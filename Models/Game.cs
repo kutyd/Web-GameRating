@@ -1,6 +1,4 @@
-using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 using System.ComponentModel.DataAnnotations;
-using System.Xml.Linq;
 
 namespace GameRating.Models
 {
@@ -17,6 +15,8 @@ namespace GameRating.Models
          [Display(Name = "Banner")]
         [DataType(DataType.Upload)]
         public string? Banner { get; set; }
+
+        public List<GameComment>? GameComments { get; set; }
 
     }
 }

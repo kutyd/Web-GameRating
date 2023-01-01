@@ -8,59 +8,40 @@
 }
 <div class="row">
     <div class="col-5 offset-4">
-        <form  asp-action="EditGame"
-         enctype="multipart/form-data"
-        >
-            <div 
-            asp-validation-summary="ModelOnly" class="text-danger small"></div>
-            
-
+        <form asp-action="EditGame" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger small"></div>
             <div class="form-group mb-3">
                 <label asp-for="Title" class="form-label">Title</label>
-                <input asp-for="Title" class="form-control" placeholder="Title" 
-                    value="@Model.Title"
-                />
+                <input asp-for="Title" class="form-control" placeholder="Title" value="@Model.Title" />
                 <span asp-validation-for="Title" class="text-danger small"></span>
             </div>
 
             <div class="form-group mb-3">
                 <label asp-for="Detail" class="form-label">Detail</label>
 
-                <textarea type="text" class="form-control" placeholder="Detail"   asp-for="Detail"
-                style="height: 150px ;resize: none;"
-                value="@Model.Detail"
-                ></textarea>
-                <span 
-                
-                asp-validation-for="Detail" class="text-danger small"></span>
+                <textarea type="text" class="form-control" placeholder="Detail" asp-for="Detail"
+                    style="height: 150px ;resize: none;" value="@Model.Detail"></textarea>
+                <span asp-validation-for="Detail" class="text-danger small"></span>
             </div>
-               
+
             <div class="form-group mb-3 d-flex ">
-                  
-                          <input type="file" asp-for="Banner"
-                    value="data:image/png;base64,@Html.Raw(Model.Banner)"
-                   />
-                      
 
-                  
-                          @if (!string.IsNullOrEmpty(Model.Banner))
-                                {
-                                <img src="data:Banner/png;base64,@Html.Raw(Model.Banner)"
-                                style="width:50%;height:185px" 
-                                />
-                                }
-                                else
-                                {
-                                    <img src="~/images/game.jpg"
-                                    />
-                            }
+                <input type="file" asp-for="Banner" value="data:image/png;base64,@Html.Raw(Model.Banner)" />
+
+                @if (!string.IsNullOrEmpty(Model.Banner))
+                {
+                    <img src="data:Banner/png;base64,@Html.Raw(Model.Banner)" style="width:50%;height:185px" />
+                }
+                else
+                {
+                    <img src="~/images/game.jpg" />
+                }
             </div>
 
-            
+
             <div class="form-group d-grid mb-3">
                 <button type="submit" class="btn btn-primary d-block w-100 mt-4">Edit Game</button>
             </div>
         </form>
     </div>
 </div>
-

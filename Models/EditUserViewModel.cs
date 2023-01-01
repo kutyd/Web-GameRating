@@ -7,10 +7,9 @@ namespace GameRating.Models
     public class EditUserViewModel
     {
         public string Username { get; set; }
-
+        
         [Required]
         public String Role { get; set; } = "User";
-
 
     }
 }

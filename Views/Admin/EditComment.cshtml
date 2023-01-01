@@ -1,0 +1,28 @@
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@model GameRating.Models.EditGameCommentViewModel
+
+<div class="row">
+    <div class="col-4 offset-4">
+        <form asp-action="EditComment" asp-controller="Admin">
+            <div asp-validation-summary="ModelOnly" class="text-danger small"></div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Content" class="form-label">Content</label>
+                <textarea type="text" class="form-control" placeholder="Content" asp-for="Content"
+                    value="@Model.Content" style="height: 100px;resize: none;"></textarea>
+                <span asp-validation-for="Content" class="text-danger small"></span>
+                <label asp-for="Rating" class="form-label">Rating</label>
+                <input type="number" name="Rating" id="Rating" class="form-control" placeholder="Rating"
+                    asp-for="Rating" value="@Model.Rating" />
+                <span asp-validation-for="Rating" class="text-danger small"></span>
+            </div>
+
+            <div class="form-group d-grid mb-3">
+                <button type="submit" class="btn btn-primary d-block w-100 mt-4">Edit Comment</button>
+            </div>
+        </form>
+    </div>
+</div>

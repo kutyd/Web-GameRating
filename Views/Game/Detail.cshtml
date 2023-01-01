@@ -3,26 +3,108 @@
 
 <div class="wrapper">
 
-    <div class="banner-wrapper">
+  <div class="banner-wrapper">
 
-<img
-              
-                src="data:image/png;base64,@Html.Raw(Model.Banner)" />
+    <img src="data:image/png;base64,@Html.Raw(Model.Banner)" />
+  </div>
+
+  <div class="gameInfo-wrapper">
+
+    <div class="game-title">
+      @Model.Title
+    </div>
+    <div class="game-Detail">
+      @Model.Detail
+    </div>
+    <div class=" wrp">
+      <button type="button" data-bs-toggle="modal" href="#exampleModalToggle" role="button"
+        class="btn btn-outline-secondary mt-4">Add Comment</button>
+
+      <p style="color: #6c757d; font-size: 14px; font-weight: 500; ">@Model.GameComments.Count Comments</p>
     </div>
 
-    <div class="gameInfo-wrapper">
-        <div class="gameInfo">
-            <div class="gameInfo-title">
-                @Model.Title
-            </div>
-            <div class="gameInfo-Detail">
-                @Model.Detail
-            </div>
-        </div>
-    </div>
-
+  </div>
 
 </div>
 
 
+<div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
+  tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-center " id="exampleModalToggleLabel">Add comment </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <form method="post" asp-action="AddComment" asp-controller="Game">
+          <input type="hidden" name="GameId" value="@Model.GameId">
+
+
+          <textarea class="form-control" name="Content" placeholder="Yorumunuz..." required=""
+            style="height: 130px;resize: none;"></textarea>
+
+          <label class="form-label">Rating</label>
+          <select class="form-select" name="Rating" aria-label="Default select example">
+            <option value="1" selected>1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+
+
+
+          <div class="d-flex flex-row-reverse">
+            <button type="submit" id="btnComment" data-bs-toggle="modal" data-bs-dismiss="modal"
+              class="btn btn-secondary submit mt-4">Add Comment</button>
+          </div>
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<div class="comment-container">
+
+  <div class="title">
+    Comments
+  </div>
+  <div class="wrp-comments">
+    @foreach (var comment in Model.GameComments.ToList())
+    {
+      <div class="comment-wrapper">
+        <div class="d-flex justify-content-between">
+          <div class="comment-title">
+            @comment.User.Username
+          </div>
+          <div class="ratings">
+            @foreach (var num in Enumerable.Range(1, comment.Rating))
+            {
+              <i class="fa fa-star rating-color"></i>
+
+            }
+            @foreach (var num in Enumerable.Range(1, 5 - comment.Rating))
+            {
+              <i class="fa fa-star "></i>
+
+            }
+          </div>
+        </div>
+
+        <div class="comment-content">
+          @comment.Content
+        </div>
+        <div class="comment-CreatedDate">
+          @comment.CreatedDate
+        </div>
+      </div>
+
+    }
+  </div>
+</div>
 <link rel="stylesheet" href="~/css/detail.css">

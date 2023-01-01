@@ -1,0 +1,58 @@
+
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@model IEnumerable<GameRating.Models.GameComment>
+
+
+<table class="table table-dark">
+  <thead>
+    <tr>
+      <th scope="col">Game</th>
+      <th scope="col">Author</th>
+      <th scope="col">Content</th>
+      <th scope="col">Rating</th>
+      <th scope="col">CreatedDate</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+      @foreach (var item in Model)
+    {
+    <tr>
+          <th scope="row">
+             <img
+               style="width: 95px; height: 120px"
+                src="data:image/png;base64,@Html.Raw(item.Game.Banner)" />
+      </th>
+      <td>@item.User.Username</td>
+      <td>@item.Content</td>
+
+      <td>
+         <div class="ratings">
+            @foreach (var num in Enumerable.Range(1, item.Rating)  )
+            {
+                <i class="fa fa-star rating-color"></i>
+              
+            }
+             @foreach (var num in Enumerable.Range(1,5- 
+item.Rating)  )
+            {
+                <i class="fa fa-star "></i>
+              
+            }
+            </div>
+      </td>
+      <td>@item.CreatedDate</td>
+        <td>
+              <a href="/Admin/EditComment/@item.CommentId" class="btn btn-primary"> Edit  </a>
+            </td>
+            <td>
+                <a href="/Admin/DeleteComment/@item.CommentId" class="btn btn-danger"> Delete  </a>
+            </td>
+    </tr>
+    }
+  </tbody>
+</table>

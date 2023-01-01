@@ -2,106 +2,100 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - GameRating</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>@ViewData["Title"] - GameRating</title>
 
- <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
-		
-		<link rel="stylesheet" href="~/css/adminpanel.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+
+  <link rel="stylesheet" href="~/css/adminpanel.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
 
 </head>
 
-<body >
+<body>
 
-  	
-		<div class="wrapper d-flex align-items-stretch">
-			<nav id="sidebar">
-				<div class="p-4 pt-5">
-		  		<h2
-                    style="color:white;font-size: 25px;font-weight: 600;font-family: 'Teko', sans-serif;margin-bottom: 30px;"
-                >GAMERATİNG - ADMİN PANEL </h2>
-	        <ul class="list-unstyled components mb-5">
-	        
-	          <li >
-              
-	              <a href="/Admin/Games">
-                    
-                <i class="fa-solid fa-puzzle-piece mr-4"></i>
-                    
-                    Games</a>
-	          </li>
-	         
-	          <li>
-               
-              <a href="/Admin/Users">
-                
-                 <i class="fa-solid fa-users mr-4"
-                    style="color: white;"
-                ></i>
-                Users</a>
-	          </li>
-	          <li>  
-             
-              <a href="#">
-                   <i class="fa-solid fa-star mr-4 "
-                    style="color: white;"
-                ></i>
-                Comment & Stars</a>
-	          </li>
-	        </ul>
+  <div class="wrapper d-flex align-items-stretch">
+    <nav id="sidebar">
+      <div class="p-4 pt-5">
+        <h2 style="color:white;font-size: 25px;font-weight: 600;font-family: 'Teko', sans-serif;margin-bottom: 30px;">
+          GAMERATİNG - ADMİN PANEL </h2>
+        <ul class="list-unstyled components mb-5">
 
-	        <div class="footer">
-                
-	        	@* LOGOUT  *@
-                  <a asp-controller="Home" asp-action="Index" asp-area=""
-                  >
-                            Logout</a>
-	        </div>
+          <li>
 
-	      </div>
-    	</nav>
+            <a href="/Admin/Games">
 
-        <!-- Page Content  -->
-      <div id="content" class="p-4 p-md-5">
+              <i class="fa-solid fa-puzzle-piece mr-4"></i>
 
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          <div class="container-fluid">
+              Games</a>
+          </li>
 
-            <button type="button" id="sidebarCollapse" class="btn btn-primary">
-              <i class="fa fa-bars"></i>
-              <span class="sr-only">Toggle Menu</span>
-            </button>
-            <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="fa fa-bars"></i>
-            </button>
+          <li>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="nav navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/Admin/Games">Games</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/Admin/Users">Users</a>
-                </li>
-               
-              </ul>
-            </div>
-          </div>
-        </nav>
+            <a href="/Admin/Users">
 
-    @RenderBody()
+              <i class="fa-solid fa-users mr-4" style="color: white;"></i>
+              Users</a>
+          </li>
+          <li>
+
+            <a href="/Admin/GameComments">
+              <i class="fa-solid fa-star mr-4 " style="color: white;"></i>
+              Comment & Stars</a>
+          </li>
+        </ul>
+
+        <div class="footer">
+          <a asp-controller="Home" asp-action="Index" asp-area="">
+            Logout</a>
+        </div>
+
       </div>
-		</div>
+    </nav>
+    <div id="content" class="p-4 p-md-5">
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+
+          <button type="button" id="sidebarCollapse" class="btn btn-primary">
+            <i class="fa fa-bars"></i>
+            <span class="sr-only">Toggle Menu</span>
+          </button>
+          <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <i class="fa fa-bars"></i>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="nav navbar-nav ml-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="/Admin/Games">Games</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/Admin/Users">Users</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/Admin/GameComments"> Comment & Stars</a>
+              </li>
+
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      @RenderBody()
+    </div>
+  </div>
 
 
-    @await RenderSectionAsync("Scripts", required: false)
-      <script src="~/js/jquery.min.js"></script>
-    <script src="~/js/popper.js"></script>
-    <script src="~/js/bootstrap.min.js"></script>
-    <script src="~/js/main.js"></script>
-  
+  @await RenderSectionAsync("Scripts", required: false)
+  <script src="~/js/jquery.min.js"></script>
+  <script src="~/js/popper.js"></script>
+  <script src="~/js/bootstrap.min.js"></script>
+  <script src="~/js/main.js"></script>
+
 </body>
 
 </html>

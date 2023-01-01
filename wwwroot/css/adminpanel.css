@@ -11119,3 +11119,15 @@
  .footer p {
      color: rgba(255, 255, 255, 0.5);
  }
+ 
+ .ratings {
+     margin-right: 10px;
+ }
+ 
+ .ratings i {
+     color: #cecece;
+ }
+ 
+ .rating-color {
+     color: #fbc634 !important;
+ }

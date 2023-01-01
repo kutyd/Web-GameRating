@@ -16,6 +16,7 @@ namespace GameRating.Models
         }
         public DbSet<User> Kullanicilar { get; set; }
         public DbSet<Game> Oyunlar { get; set; }
+        public DbSet<GameComment> Yorumlar { get; set; }
 
     }
 

@@ -15,7 +15,6 @@
 header {
     width: 100%;
     background-color: var(--back);
-    /* border: 2px solid red; */
     height: 90px;
     position: relative;
     overflow: hidden;
@@ -36,7 +35,6 @@ header {
     left: 0;
     background-color: var(--back);
     z-index: 20;
-    /* border: 2px solid green; */
     padding-top: 10px;
     height: 100%;
 }
@@ -44,7 +42,6 @@ header {
 @media (max-width: 1390px) {
     .Navbar_field {
         width: 100%;
-        /* border: yellow solid 2px; */
         padding: 0 1rem;
     }
     .myFavorites {
@@ -160,7 +157,6 @@ header {
 .gameList {
     position: relative;
     min-height: 600px;
-    border: #1b1c22 solid 3px;
 }
 
 .myFavorites,
